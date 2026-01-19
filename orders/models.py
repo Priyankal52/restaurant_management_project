@@ -1,3 +1,18 @@
 from django.db import models
+class OrderStatus(models.model):
+    name= models.CharFeild(max_length=50,unique=True)
 
-# Create your models here.
+    def__str__(self)
+      return self.name
+    
+    class Order(model.Model):
+        customer_name = models.CharFeild(max_length=100)
+        created_at = models.DateTimeFeild(auto_now_add=True)
+
+    status= models.ForeignKey(
+        Orderstatus,
+        on_delete=models.SET_NULL,
+        blank=True
+    )
+    def def__str__(self):
+        return f"Order #{self.id}"
