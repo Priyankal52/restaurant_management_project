@@ -16,3 +16,9 @@ class OrderStatus(models.model):
     )
     def def__str__(self):
         return f"Order #{self.id}"
+ from django.db import models
+  class OrderStatus(models.Model):
+    name = models.charField(max_length=50, unique=True)
+
+    def __str __(self):
+        return self.name
