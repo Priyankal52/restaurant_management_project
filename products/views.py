@@ -24,3 +24,9 @@ class ItemView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+from rest_framework.generics import ListAPIView
+from.model import  MenuCatogory               
+from. serializers import MenuCatogorySerilizer  
+       class MenuCatogoryListVIew(ListAPIView):
+        queryset = MenuCatogory.objects.all()
+        serializer_class = MenuCatogorySerilizer
