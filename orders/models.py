@@ -1,7 +1,7 @@
 from django.db import models
 class OrderStatus(models.model):
     name= models.CharFeild(max_length=50,unique=True)
-
+    
     def__str__(self)
       return self.name
     
