@@ -22,3 +22,18 @@ if model is None:
     if not model.objects.filter(**{field_name: code}).exists():
         return code 
     raise Execption("could not generate a unique coupon code after multiple attempts,")
+
+from datatime import datetime
+from django.utils import timezone
+from .models import DailyOperatingHours
+
+    def get_today_operating_hours():
+        Returns today's operating hours as(open_time, close_time)
+        if not hours set for today , returns (None, None)
+
+        today_day = timezone.localtime(timezone.now()).strtime("%A")
+       try:
+        hours = DailyOperatingHours.get(day=today_day)
+        return hours.open_time, hours.close_time
+    except DailyOperatingHours.DoesNot:
+        return None, None
